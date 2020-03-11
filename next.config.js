@@ -7,16 +7,6 @@ module.exports = {
 
 
       config.module.rules.push(
-          {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    options: {
-                        presets: ['@babel/preset-env']
-                    }
-                }
-        },
         {
             test: /\.css$/,
             loader: "style-loader!css-loader"

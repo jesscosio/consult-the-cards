@@ -1,11 +1,11 @@
-import CelticCross from '../pages/boards/celtic-cross';
+import CelticCross from '../components/boards/celtic-cross';
 
 
 export default function Gameboard() {
 
     return (
         <div>
-            <CelticCross></CelticCross>
+            <CelticCross/>
         </div>
     );
 }
