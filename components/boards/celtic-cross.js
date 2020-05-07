@@ -90,10 +90,10 @@ class CelticCross extends React.Component {
             <button onClick={()=>this.flipCard()}>draw next</button>
             <ul>
                 {this.state.drawnCards.map((card,index) => (
-                    <li className={`face card-${index+1}`} key={card.name}>
-                        <span>{card.name}</span>
-                        <span className="cardNumLabel">{index + 1}</span>
-                    </li>
+                    <Card card={card} className={`face card-${index+1}`} idx={index+1} key={card.name}>
+                        {/* <span>{card.name}</span>
+                        <span className="cardNumLabel">{index + 1}</span> */}
+                    </Card>
                 ))}
             </ul>
             <style jsx>{`
@@ -113,64 +113,6 @@ class CelticCross extends React.Component {
           padding: 0;
           position: relative;
           height: 100vh;
-        }
-
-        .card-1 {
-            position: absolute;
-            top: 200px;
-            left: 150px;
-        }
-
-        .card-2 {
-            float: left;
-            position: absolute;
-            transform: rotate(90deg);
-            top: 205px;
-            left: 150px;
-        }
-
-        .card-3 {
-            position: absolute;
-            top: 0;
-            left: 150px;
-        }
-
-        .card-4 {
-            position: absolute;
-            top: 400px;
-            left: 150px;
-        }
-
-        .card-5{
-            position: absolute;
-            top: 200px;
-            left: 300px;
-        }
-
-        .card-6 {
-            position: absolute;
-            top: 200px;
-            left: 0;
-        }
-        .card-7 {
-            position: absolute;
-            bottom: 40px;
-            right: 0;
-        }
-        .card-8 {
-            position: absolute;
-            right: 0;
-            bottom: 200px;
-        }
-        .card-9 {
-            position: absolute;
-            top: 160px;
-            right: 0;
-        }
-        .card-10 {
-            position: absolute;
-            top: 0;
-            right: 0;
         }
 
         .flipped {
@@ -193,12 +135,7 @@ class CelticCross extends React.Component {
             z-index: 2;
         }
 
-        .cardNumLabel {
-            display: block;
-            margin: 5px;
-            font-weight:bold;
-
-        }
+        
       `}</style>
          </div>
          

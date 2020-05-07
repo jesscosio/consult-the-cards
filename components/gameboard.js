@@ -5,7 +5,7 @@ export default function Gameboard() {
 
     return (
         <div>
-            <CelticCross/>
+            <CelticCross />
         </div>
     );
 }
