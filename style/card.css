@@ -1,0 +1,49 @@
+h1 { 
+    font-size: 1.5em;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+h1:hover {
+    overflow: visible;
+}
+
+.cardNumLabel {
+    display: block;
+    margin: 5px;
+    font-weight:bold;
+
+}
+.flipped {
+    display: inherit;
+}
+
+.face {
+  background: maroon;
+  display: none;
+  padding: 5px;
+  margin: auto;
+  height: 130px;
+  width: 90px;
+  list-style:none;
+  text-align: center;
+  z-index:1;
+}
+
+.face:hover {
+    z-index: 2;
+    transform: rotate(0);
+}
+
+.isUpsidedown.card-2 {
+    transform: rotate(270deg);
+}
+
+.isUpsidedown {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    border-bottom: 1px solid black;
+}
+
+

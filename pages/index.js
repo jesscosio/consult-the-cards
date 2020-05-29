@@ -1,14 +1,19 @@
 import Layout from '../components/layout';
 import Gameboard from '../components/gameboard';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
 
 
 
-export default function Index() {
-    return (
-        <div>
-      <Layout>
-          <Gameboard></Gameboard>
-      </Layout>
-    </div>
-    );
-}
+ReactDOM.render(<App />, document.getElementById("root"));
+
+// export default function Index() {
+//     return (
+//         <div>
+//       <Layout>
+//           <Gameboard></Gameboard>
+//       </Layout>
+//     </div>
+//     );
+// }
