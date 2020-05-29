@@ -1,5 +1,6 @@
-export default function Header() {
+import React from 'react';
 
+export default function Header() {
 
     const headerStyle = {
         textAlign: 'center',
