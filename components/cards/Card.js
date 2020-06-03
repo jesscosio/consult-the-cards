@@ -3,10 +3,8 @@
  import React from 'react';
  import '../../style/card.css';
  
- const cardStyle =  {
-    borderWidth: '1px',
-    borderColor: '#eeeeee'
-};
+
+
 
 class Card extends React.Component{
     constructor(props) {
@@ -15,15 +13,22 @@ class Card extends React.Component{
         this.state = {
             isVisible: false
         }
-
     }
+//
 
     render() {
+        const cardStyle =  {
+            backgroundImage: `url(${this.props.img})`,
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat'
+
+        };
+
         return (
             <React.Fragment>
-                   <li style={this.cardStyle} className={`face card-${this.props.idx} ${ this.props.card.isUpsidedown ? 'isUpsidedown' : '' }`} key={this.props.card.name}>
-            <h1 id="cardTitle">{this.props.card.name}</h1>
-            <img id="cardImg">{this.props.card.cardImg}</img>
+                   <li style={cardStyle} className={`face card-${this.props.idx} ${ this.props.card.isUpsidedown ? 'isUpsidedown' : '' }`} key={this.props.card.name}>
+            {/* <h1 id="cardTitle"></h1> */}
+            {/* <img id="cardImg" src={this.props.img}></img> */}
             {/* <span id="cardDesc">props.cardDesc</span> */}
             {this.props.children}
     

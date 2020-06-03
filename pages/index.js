@@ -7,13 +7,3 @@ import App from "./App.js";
 
 
 ReactDOM.render(<App />, document.getElementById("root"));
-
-// export default function Index() {
-//     return (
-//         <div>
-//       <Layout>
-//           <Gameboard></Gameboard>
-//       </Layout>
-//     </div>
-//     );
-// }

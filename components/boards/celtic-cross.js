@@ -8,6 +8,18 @@ import '../../style/celtic-cross.css'
 const NUMCARDS = 10;
 const NUMDECK = 78;
 
+const buttonStyle = {
+    display: "block",
+    margin: "10px 0"
+}
+const listOfCards = {
+    margin: "20px",
+    padding: "0",
+    position: "relative",
+    height: "100vh"
+  }
+
+
 /** will return a random integer between 1 and 78 (number of tarot cards) */
 function getRandomInt() {
     return Math.floor(Math.random() * Math.floor(NUMDECK));
@@ -37,15 +49,12 @@ function getRandomCards(that) {
 function assignAllCards() {
     return Array.from(cards);
 }
-const buttonStyle = {
-    display: "block",
-    margin: "10px 0"
+
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
 }
-const listOfCards = {
-    padding: "0",
-    position: "relative",
-    height: "100vh"
-  }
 
 class CelticCross extends React.Component {
     constructor(props) {
@@ -53,6 +62,7 @@ class CelticCross extends React.Component {
       this.state = {
           drawnCards: [],
           allCards:[],
+          cardImages: [],
           flipIndex: 0,
         };
     }
@@ -61,6 +71,9 @@ class CelticCross extends React.Component {
         const allCards = assignAllCards(); // initializes all cards
         
         this.setState({allCards: allCards});
+
+        const card_images = this.state.cardImages.length < 1 ? importAll(require.context('../../assets/cards', false, /\.(gif|jpe?g|svg)$/)) : this.state.cardImages;
+        this.setState({cardImages: card_images});
     }
     componentDidUpdate() {
         // display card on update of flip index; may have to change this if updates more than necessary
@@ -70,9 +83,10 @@ class CelticCross extends React.Component {
     }
 
     flipCard() {
+        // if it's first flip, draw initial cards + load images
         if(this.state.flipIndex == 0) {
             const drawnCards = getRandomCards(this);
-            this.setState({drawnCards: drawnCards});   
+            this.setState({drawnCards: drawnCards});  
         }
         // sets counter in order to draw the next card
         this.setState({flipIndex: this.state.flipIndex + 1});
@@ -103,7 +117,7 @@ class CelticCross extends React.Component {
             <button style={buttonStyle} onClick={()=>this.flipCard()}>draw next</button>
             <ul style={listOfCards}>
                 {this.state.drawnCards.map((card,index) => (
-                    <Card card={card} className={`face card-${index+1}`} idx={index+1} key={card.name}>
+                    <Card card={card} className={`face card-${index+1}`} idx={index+1} key={card.name} img={this.state.cardImages[card.image]}>
                         {/* <span>{card.name}</span>
                         <span className="cardNumLabel">{index + 1}</span> */}
                     </Card>
