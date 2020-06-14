@@ -1,7 +1,7 @@
 
 
  import React from 'react';
- import '../../style/card.css';
+ import '../../styles/card.css';
  
 
 

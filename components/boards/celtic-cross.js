@@ -2,7 +2,7 @@
 import {cards} from "../../data/cards.json";
 import Card from "../../components/cards/Card";
 import React from "react";
-import '../../style/celtic-cross.css'
+import '../../styles/celtic-cross.css'
 
 
 const NUMCARDS = 10;
