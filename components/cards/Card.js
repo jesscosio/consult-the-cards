@@ -4,8 +4,6 @@
  import '../../styles/card.css';
  
 
-
-
 class Card extends React.Component{
     constructor(props) {
         super(props);
